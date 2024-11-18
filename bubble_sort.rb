@@ -11,8 +11,13 @@ def bubble_sort(nums)
       copy = nums[i]
       nums[i] = nums[j]
       nums[j] = copy
-    elsif j == (sorted_nums.length - 1)
-      sorted = true
+    else
+      test =
+        sorted_nums.each_cons(2).all? do |num, next_num|
+            num <= next_num
+        end
+      sorted = true if test == true
+
     end
     
     i += 1
@@ -22,7 +27,7 @@ def bubble_sort(nums)
       i = 0
       j = 1
     end
-    binding.pry
+
   end
   p sorted_nums
 end
